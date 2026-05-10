@@ -1,0 +1,924 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>For My Mom ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  overflow-x:hidden;
+  background:linear-gradient(135deg,#ffb6d9,#ff8fc5,#ffc6e5);
+  color:white;
+}
+
+/* BACKGROUND */
+
+.background{
+  position:fixed;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  z-index:-2;
+}
+
+.bubble{
+  position:absolute;
+  bottom:-150px;
+  background:rgba(255,255,255,0.15);
+  border-radius:50%;
+  animation:floatUp linear infinite;
+  backdrop-filter:blur(3px);
+}
+
+.heart{
+  position:absolute;
+  color:rgba(255,255,255,0.3);
+  animation:hearts 10s linear infinite;
+  font-size:20px;
+}
+
+/* HERO */
+
+header{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px;
+}
+
+.hero{
+  background:rgba(255,255,255,0.12);
+  padding:50px;
+  border-radius:30px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 40px rgba(0,0,0,0.2);
+  animation:fadeIn 2s ease;
+  max-width:850px;
+}
+
+.hero h1{
+  font-size:5rem;
+  font-family:'Great Vibes', cursive;
+  margin-bottom:10px;
+}
+
+.hero h2{
+  font-size:2rem;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:1.1rem;
+  line-height:1.8;
+}
+
+/* GENERAL */
+
+section{
+  padding:90px 10%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+  font-size:3rem;
+  font-family:'Great Vibes', cursive;
+}
+
+/* BUTTON */
+
+.love-btn{
+  margin-top:30px;
+  padding:15px 35px;
+  border:none;
+  border-radius:40px;
+  font-size:1rem;
+  font-weight:700;
+  background:white;
+  color:#ff4fa1;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.love-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px rgba(255,255,255,0.8);
+}
+
+/* GALLERY */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.photo-card{
+  background:rgba(255,255,255,0.12);
+  border-radius:25px;
+  overflow:hidden;
+  transition:0.4s ease;
+  backdrop-filter:blur(10px);
+}
+
+.photo-card:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+
+.photo-card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+
+.photo-card p{
+  padding:20px;
+  text-align:center;
+}
+
+/* MESSAGE BOXES */
+
+.messages{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.message-box{
+  background:rgba(255,255,255,0.12);
+  padding:35px;
+  border-radius:25px;
+  backdrop-filter:blur(10px);
+  transition:0.4s ease;
+}
+
+.message-box:hover{
+  transform:scale(1.04);
+}
+
+/* TIMELINE */
+
+.timeline{
+  position:relative;
+  max-width:900px;
+  margin:auto;
+}
+
+.timeline::after{
+  content:'';
+  position:absolute;
+  width:4px;
+  background:white;
+  top:0;
+  bottom:0;
+  left:50%;
+  margin-left:-2px;
+}
+
+.timeline-item{
+  padding:20px 40px;
+  position:relative;
+  width:50%;
+}
+
+.timeline-item::after{
+  content:'❤';
+  position:absolute;
+  width:35px;
+  height:35px;
+  right:-17px;
+  background:#ff5ca8;
+  border-radius:50%;
+  top:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.left{
+  left:0;
+}
+
+.right{
+  left:50%;
+}
+
+.right::after{
+  left:-18px;
+}
+
+.timeline-content{
+  background:rgba(255,255,255,0.12);
+  padding:25px;
+  border-radius:20px;
+}
+
+/* LOVE REASON */
+
+#loveReason{
+  background:rgba(255,255,255,0.15);
+  padding:40px;
+  border-radius:25px;
+  backdrop-filter:blur(10px);
+  min-height:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.3rem;
+  line-height:1.8;
+  margin-bottom:30px;
+  transition:0.4s ease;
+}
+
+/* COUNTER */
+
+.counter-box{
+  text-align:center;
+  font-size:2rem;
+  background:rgba(255,255,255,0.15);
+  padding:40px;
+  border-radius:25px;
+  max-width:700px;
+  margin:auto;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:50px 20px;
+  background:rgba(255,255,255,0.08);
+}
+
+/* ANIMATIONS */
+
+@keyframes floatUp{
+  0%{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-120vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@keyframes hearts{
+  0%{
+    transform:translateY(0);
+    opacity:0;
+  }
+
+  20%{
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fall{
+  0%{
+    transform:translateY(-50px) rotate(0deg);
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(120vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:3.5rem;
+  }
+
+  .hero h2{
+    font-size:1.5rem;
+  }
+
+  .timeline::after{
+    left:31px;
+  }
+
+  .timeline-item{
+    width:100%;
+    padding-left:70px;
+    padding-right:25px;
+  }
+
+  .timeline-item::after{
+    left:13px;
+  }
+
+  .right{
+    left:0;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background" id="background"></div>
+
+<header>
+
+<div class="hero">
+
+<h1>To My Beautiful Mom ❤️</h1>
+
+<h2>19 Years of Love, Sacrifice & Care</h2>
+
+<p>
+Thank you for every prayer, every sacrifice,
+every smile, and every moment you stood beside me.
+This website is a reminder that your love shaped my world.
+</p>
+
+<button class="love-btn" onclick="showLove()">
+Click Me ❤️
+</button>
+
+</div>
+
+</header>
+
+<!-- GALLERY -->
+
+<section>
+
+<h2 class="section-title">Our Memories 📸</h2>
+
+<div class="gallery">
+
+<div class="photo-card">
+<img src="https://i.ibb.co/vCK4vx9m/IMG-20250430-113700.avif" alt="Mom Image 1">
+<p>Her smile lights up every room.</p>
+</div>
+
+<div class="photo-card">
+<img src="https://i.ibb.co/QxN2HPF/IMG-20260426-162056.jpg" alt="Mom Image 2">
+<p>The strongest woman I know.</p>
+</div>
+
+<div class="photo-card">
+<img src="https://i.ibb.co/99FTscry/20231202-131448.jpg" alt="Mom Image 3">
+<p>19 years of unconditional love.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- MESSAGES -->
+
+<section>
+
+<h2 class="section-title">Messages For You 💌</h2>
+
+<div class="messages">
+
+<div class="message-box">
+<h3>Thank You ❤️</h3>
+<p>
+Thank you for believing in me even during moments
+when I struggled to believe in myself.
+</p>
+</div>
+
+<div class="message-box">
+<h3>My Inspiration 🌸</h3>
+<p>
+Your strength, kindness, and love continue
+to inspire me every single day.
+</p>
+</div>
+
+<div class="message-box">
+<h3>Forever Grateful ✨</h3>
+<p>
+No words could fully describe how grateful I am
+for everything you have done for me.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section>
+
+<h2 class="section-title">19 Years Together ⏳</h2>
+
+<div class="timeline">
+
+<div class="timeline-item left">
+<div class="timeline-content">
+<h3>2007</h3>
+<p>The beginning of my journey with the best mom.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-content">
+<h3>Childhood</h3>
+<p>Every lesson and every hug shaped me.</p>
+</div>
+</div>
+
+<div class="timeline-item left">
+<div class="timeline-content">
+<h3>Teen Years</h3>
+<p>You stayed beside me through everything.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-content">
+<h3>Today ❤️</h3>
+<p>I thank God every day for blessing me with you.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- WHY I LOVE YOU -->
+
+<section>
+
+<h2 class="section-title">Why I Love You ❤️</h2>
+
+<div style="text-align:center; max-width:800px; margin:auto;">
+
+<div id="loveReason">
+Click the button below ❤️
+</div>
+
+<button onclick="showReason()" class="love-btn">
+Why I Love You 💖
+</button>
+
+</div>
+
+</section>
+
+<!-- COUNTER -->
+
+<section>
+
+<h2 class="section-title">19 Years Together ⏳</h2>
+
+<div class="counter-box">
+
+<div id="counter"></div>
+
+</div>
+
+</section>
+
+<!-- VIDEO SECTION -->
+
+<section class="video-section">
+
+    <h2 class="section-title">A Special Video 🎥</h2>
+
+    <div class="video-wrapper">
+
+        <div class="video-frame">
+
+            <video 
+                src="Mom.mp4"
+                controls
+                preload="metadata">
+            </video>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.video-section{
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section-title{
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.35);
+}
+
+.video-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-frame{
+    position: relative;
+    width: fit-content;
+    padding: 14px;
+    border-radius: 32px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.15),
+        rgba(255,255,255,0.03)
+    );
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 40px rgba(255,255,255,0.08),
+        0 20px 60px rgba(0,0,0,0.45),
+        inset 0 0 12px rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    overflow: hidden;
+
+    transition: all 0.4s ease;
+}
+
+.video-frame:hover{
+    transform: translateY(-6px) scale(1.01);
+
+    box-shadow:
+        0 0 50px rgba(255,255,255,0.12),
+        0 30px 80px rgba(0,0,0,0.55);
+}
+
+.video-frame::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.08),
+            transparent
+        );
+
+    transform: translateX(-100%);
+    transition: 0.8s;
+}
+
+.video-frame:hover::before{
+    transform: translateX(100%);
+}
+
+.video-frame video{
+    width: 850px;
+    max-width: 100%;
+    height: auto;
+
+    border-radius: 22px;
+
+    display: block;
+
+    background: #000;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 900px){
+
+    .section-title{
+        font-size: 2.2rem;
+    }
+
+    .video-section{
+        padding: 50px 12px;
+    }
+
+    .video-frame{
+        padding: 10px;
+        border-radius: 24px;
+    }
+
+    .video-frame video{
+        border-radius: 16px;
+    }
+
+}
+
+</style>
+
+<section>
+
+<h2 class="section-title">A Message From Me 🎙️</h2>
+
+<div style="text-align:center;">
+
+<audio controls>
+<source src="Mom.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+</section>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="bg-music" loop>
+    <source src="sjava.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FLOATING MUSIC BUTTON -->
+
+<button id="music-btn">▶</button>
+
+<style>
+
+#music-btn{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    width: 65px;
+    height: 65px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.35),
+        inset 0 0 10px rgba(255,255,255,0.08);
+
+    transition: all 0.3s ease;
+}
+
+#music-btn:hover{
+    transform: scale(1.08);
+
+    background: rgba(255,255,255,0.2);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.45),
+        0 0 18px rgba(255,255,255,0.18);
+}
+
+#music-btn:active{
+    transform: scale(0.95);
+}
+
+</style>
+
+<script>
+
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("music-btn");
+
+let isPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+
+    if(isPlaying){
+        music.pause();
+        musicBtn.innerHTML = "▶";
+    } else {
+        music.play();
+        musicBtn.innerHTML = "⏸";
+    }
+
+    isPlaying = !isPlaying;
+});
+
+</script>
+
+<footer>
+Made with endless love for the best mom in the world 💖
+</footer>
+
+<script>
+
+/* FLOATING BUBBLES */
+
+const background =
+document.getElementById("background");
+
+for(let i=0; i<35; i++){
+
+  let bubble =
+  document.createElement("div");
+
+  bubble.classList.add("bubble");
+
+  let size =
+  Math.random() * 80 + 20;
+
+  bubble.style.width =
+  size + "px";
+
+  bubble.style.height =
+  size + "px";
+
+  bubble.style.left =
+  Math.random() * 100 + "%";
+
+  bubble.style.animationDuration =
+  (Math.random() * 10 + 10) + "s";
+
+  background.appendChild(bubble);
+}
+
+/* FLOATING HEARTS */
+
+for(let i=0; i<25; i++){
+
+  let heart =
+  document.createElement("div");
+
+  heart.classList.add("heart");
+
+  heart.innerHTML = "❤";
+
+  heart.style.left =
+  Math.random() * 100 + "%";
+
+  heart.style.fontSize =
+  (Math.random() * 30 + 15) + "px";
+
+  heart.style.animationDuration =
+  (Math.random() * 8 + 8) + "s";
+
+  background.appendChild(heart);
+}
+
+/* BUTTON */
+
+function showLove(){
+
+  alert(
+  "I love you Mom ❤️ Thank you for everything."
+  );
+
+}
+
+/* LOVE REASONS */
+
+const reasons = [
+
+"Because your love never failed me ❤️",
+
+"Because you sacrificed so much for me 🌸",
+
+"Because your hugs heal everything ✨",
+
+"Because you always believed in me 💖",
+
+"Because your smile brings peace to my heart 🌷",
+
+"Because you taught me strength 🌹",
+
+"Because no matter what happens, you stay beside me 💕",
+
+"Because your prayers protected me 🙏",
+
+"Because you are my home ❤️",
+
+"Because I would not be who I am without you 👑"
+
+];
+
+function showReason(){
+
+const random =
+reasons[Math.floor(Math.random() * reasons.length)];
+
+const box =
+document.getElementById("loveReason");
+
+box.style.transform = "scale(0.9)";
+box.style.opacity = "0";
+
+setTimeout(() => {
+
+box.innerHTML = random;
+
+box.style.transform = "scale(1)";
+box.style.opacity = "1";
+
+}, 300);
+
+}
+
+/* COUNTER */
+
+const startYear = 2007;
+
+function updateCounter(){
+
+const now = new Date();
+
+const years =
+now.getFullYear() - startYear;
+
+document.getElementById("counter").innerHTML =
+years + " Beautiful Years of Love ❤️";
+
+}
+
+updateCounter();
+
+/* FALLING ROSES */
+
+for(let i=0; i<20; i++){
+
+let rose =
+document.createElement("div");
+
+rose.innerHTML = "🌹";
+
+rose.style.position = "fixed";
+rose.style.left = Math.random() * 100 + "%";
+rose.style.top = "-50px";
+
+rose.style.fontSize =
+(Math.random() * 20 + 20) + "px";
+
+rose.style.animation =
+"fall 10s linear infinite";
+
+rose.style.animationDelay =
+Math.random() * 10 + "s";
+
+rose.style.zIndex = "-1";
+
+document.body.appendChild(rose);
+
+}
+
+</script>
+
+</body>
+</html>
